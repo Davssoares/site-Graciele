@@ -179,7 +179,7 @@ header .container {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background-image: linear-gradient(rgba(224, 122, 157, 0.7), rgba(79, 179, 198, 0.7)), url('../img/hero-bg.jpg');
+    background-image: linear-gradient(rgba(224, 122, 157, 0.7), rgba(79, 179, 198, 0.7));
     background-size: cover;
     background-position: center;
     display: flex;
