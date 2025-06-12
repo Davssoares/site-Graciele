@@ -103,12 +103,34 @@
             transition: var(--transition);
             border: none;
             cursor: pointer;
+            position: relative;
         }
 
         .btn:hover {
             background-color: var(--secondary-color);
             transform: translateY(-3px);
             box-shadow: var(--box-shadow);
+        }
+        
+        .btn-orcamento {
+            position: relative;
+            z-index: 1;
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+        
+        .btn-orcamento::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            width: calc(100% + 16px);
+            height: calc(100% + 16px);
+            background-color: #4fb3c6;
+            border-radius: 12px;
+            z-index: -1;
+            opacity: 1;
+            visibility: visible;
         }
 
         /* Header */
@@ -256,6 +278,107 @@
             margin-bottom: 15px;
         }
 
+        /* Galeria Section */
+        .galeria {
+            padding: 100px 0;
+            background-color: rgba(248, 200, 220, 0.1);
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .galeria-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            height: 300px;
+            background-color: #f0f0f0;
+        }
+
+        .galeria-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .galeria-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: var(--light-text);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .galeria-item:hover .galeria-overlay {
+            transform: translateY(0);
+        }
+
+        .galeria-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .galeria-overlay h3 {
+            margin-bottom: 5px;
+        }
+
+        /* Depoimentos Section */
+        .depoimentos {
+            padding: 100px 0;
+            background-image: linear-gradient(120deg, rgba(248, 200, 220, 0.1) 0%, rgba(166, 227, 233, 0.1) 50%, rgba(253, 253, 150, 0.1) 100%);
+        }
+
+        .depoimentos-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 30px;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+
+        .depoimentos-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .depoimento {
+            min-width: 300px;
+            flex: 1;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            scroll-snap-align: start;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .depoimento:nth-child(2) {
+            border-left-color: var(--secondary-color);
+        }
+
+        .depoimento:nth-child(3) {
+            border-left-color: var(--accent-color);
+        }
+
+        .depoimento-texto {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .depoimento-autor h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
         /* Contato Section */
         .contato {
             padding: 100px 0;
@@ -358,7 +481,7 @@
             <div class="hero-content">
                 <h2>Transformando momentos em memórias inesquecíveis</h2>
                 <p>Decorações personalizadas para festas e eventos especiais</p>
-                <a href="#contato" class="btn">Solicite um orçamento</a>
+                <a href="#contato" class="btn btn-orcamento">Solicite um orçamento</a>
             </div>
         </div>
     </section>
@@ -408,6 +531,91 @@
                     </div>
                     <h3>Chá de Bebê</h3>
                     <p>Decorações delicadas para celebrar a chegada do bebê.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="galeria">
+        <div class="container">
+            <h2 class="section-title">Galeria de Projetos</h2>
+            <div class="galeria-grid">
+                <div class="galeria-item">
+                    <img src="img/projetos/aniversario-princesas.jpg" alt="Decoração de festa tema princesas">
+                    <div class="galeria-overlay">
+                        <h3>Aniversário Infantil</h3>
+                        <p>Tema: Princesas</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="img/projetos/casamento-romantico.jpg" alt="Decoração de casamento romântico">
+                    <div class="galeria-overlay">
+                        <h3>Casamento</h3>
+                        <p>Estilo: Romântico</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="img/projetos/cha-bebe-safari.jpg" alt="Decoração de chá de bebê tema safari">
+                    <div class="galeria-overlay">
+                        <h3>Chá de Bebê</h3>
+                        <p>Tema: Safari</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="img/projetos/aniversario-tropical.jpg" alt="Decoração de aniversário tema tropical">
+                    <div class="galeria-overlay">
+                        <h3>Aniversário Adulto</h3>
+                        <p>Tema: Tropical</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="img/projetos/corporativo-confraternizacao.jpg" alt="Decoração de festa corporativa">
+                    <div class="galeria-overlay">
+                        <h3>Festa Corporativa</h3>
+                        <p>Evento: Confraternização</p>
+                    </div>
+                </div>
+                <div class="galeria-item">
+                    <img src="img/projetos/aniversario-herois.jpg" alt="Decoração de aniversário tema super-heróis">
+                    <div class="galeria-overlay">
+                        <h3>Aniversário Infantil</h3>
+                        <p>Tema: Super-heróis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="depoimentos">
+        <div class="container">
+            <h2 class="section-title">Depoimentos</h2>
+            <div class="depoimentos-slider">
+                <div class="depoimento">
+                    <div class="depoimento-texto">
+                        <p>"A decoração da festa da minha filha ficou perfeita! Todos os convidados elogiaram. Superou todas as expectativas!"</p>
+                    </div>
+                    <div class="depoimento-autor">
+                        <h4>Ana Paula</h4>
+                        <p>Aniversário infantil</p>
+                    </div>
+                </div>
+                <div class="depoimento">
+                    <div class="depoimento-texto">
+                        <p>"Profissionalismo e criatividade impecáveis. Nosso casamento ficou exatamente como sonhávamos."</p>
+                    </div>
+                    <div class="depoimento-autor">
+                        <h4>Carlos e Mariana</h4>
+                        <p>Casamento</p>
+                    </div>
+                </div>
+                <div class="depoimento">
+                    <div class="depoimento-texto">
+                        <p>"O chá de bebê da minha filha ficou lindo! Cada detalhe foi pensado com carinho e atenção."</p>
+                    </div>
+                    <div class="depoimento-autor">
+                        <h4>Fernanda</h4>
+                        <p>Chá de bebê</p>
+                    </div>
                 </div>
             </div>
         </div>
