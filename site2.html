@@ -1,0 +1,776 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graciele Decorações - Decoração de Festas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <style>
+        @font-face {
+            font-family: 'Bellarose';
+            src: url('gracieledecoracoes/gracieledecoracoes/fonts/Bellarose_DEMO.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <style>
+        /* Estilos completos incorporados */
+        :root {
+            --primary-color: #e07a9d;
+            --secondary-color: #e6c700;
+            --accent-color: #4fb3c6;
+            --text-color: #333333;
+            --light-text: #ffffff;
+            --dark-bg: #222222;
+            --light-bg: #f9f9f9;
+            --border-radius: 5px;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Comfortaa', sans-serif;
+            color: var(--text-color);
+            line-height: 1.8;
+            background-color: #ffffff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Comfortaa', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        h1.titulo-principal {
+            font-family: 'Bellarose', cursive;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--text-color);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color), var(--accent-color));
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 12px 30px;
+            border-radius: var(--border-radius);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .btn-orcamento {
+            position: relative;
+            z-index: 1;
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+        
+        .btn-orcamento::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            width: calc(100% + 16px);
+            height: calc(100% + 16px);
+            background-color: #4fb3c6;
+            border-radius: 12px;
+            z-index: -1;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            color: var(--primary-color);
+            font-family: 'Bellarose', cursive;
+        }
+
+        .menu {
+            display: flex;
+        }
+
+        .menu li {
+            margin-left: 30px;
+        }
+
+        .menu a {
+            font-weight: 500;
+            position: relative;
+        }
+
+        .menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .menu a:hover::after {
+            width: 100%;
+        }
+
+        .menu-mobile {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Festas representam muito mais do que datas comemorativas! Representam memórias! Representa a comemoração de uma vida! Representam a alegria de uma criança! E com todas as nossas decorações, queremos trazer tudo de .jpg') center/cover no-repeat;
+            filter: blur(5px);
+            z-index: -1;
+        }
+
+        .hero-content {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h2 {
+            font-size: 3.5rem;
+            margin-bottom: 2.5rem;
+            color: #4fb3c6;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            padding: 15px 25px;
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.3;
+            white-space: nowrap;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: 800;
+        }
+
+        /* Sobre Section */
+        .sobre {
+            padding: 100px 0;
+            background-color: rgba(79, 179, 198, 0.05);
+        }
+
+        .sobre-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .sobre-text {
+            flex: 1;
+        }
+
+        .sobre-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        /* Serviços Section */
+        .servicos {
+            padding: 100px 0;
+        }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .servico-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .servico-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .servico-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .servico-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        /* Galeria Section */
+        .galeria {
+            padding: 100px 0;
+            background-color: rgba(248, 200, 220, 0.1);
+        }
+
+        .swiper {
+            width: 100%;
+            height: 500px;
+            margin: 20px auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: var(--primary-color);
+        }
+
+        .swiper-pagination-bullet-active {
+            background: var(--primary-color);
+        }
+
+        /* Depoimentos Section */
+        .depoimentos {
+            padding: 100px 0;
+            background-image: linear-gradient(120deg, rgba(248, 200, 220, 0.1) 0%, rgba(166, 227, 233, 0.1) 50%, rgba(253, 253, 150, 0.1) 100%);
+        }
+
+        .depoimentos-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 30px;
+            padding: 20px 0;
+            scrollbar-width: none;
+        }
+
+        .depoimentos-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .depoimento {
+            min-width: 300px;
+            flex: 1;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            scroll-snap-align: start;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .depoimento:nth-child(2) {
+            border-left-color: var(--secondary-color);
+        }
+
+        .depoimento:nth-child(3) {
+            border-left-color: var(--accent-color);
+        }
+
+        .depoimento-texto {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .depoimento-autor h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        /* Contato Section */
+        .contato {
+            padding: 100px 0;
+            background-color: rgba(253, 253, 150, 0.1);
+        }
+
+        .contato-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .contato-info {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .contato-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .contato-item i {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-right: 15px;
+            margin-top: 5px;
+        }
+        
+        .contato-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .contato-buttons .btn {
+            min-width: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: var(--light-text);
+            padding: 20px 0;
+        }
+
+        .footer-bottom {
+            text-align: center;
+        }
+
+        /* Mapa */
+        .mapa-container {
+            width: 100%;
+            margin: 20px 0;
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #fff;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                padding: 20px 0;
+            }
+            
+            .menu.active {
+                display: flex;
+            }
+            
+            .menu li {
+                margin: 10px 0;
+                text-align: center;
+            }
+            
+            .menu-mobile {
+                display: block;
+            }
+            
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .sobre-content, .contato-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 class="titulo-principal">Graciele Decorações</h1>
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+                <div class="menu-mobile">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2><span style="display: block;">Transformando momentos</span><span style="display: block;">em memórias inesquecíveis</span></h2>
+                <a href="#" onclick="contatoWhatsApp('Olá! Gostaria de solicitar um orçamento para decoração.'); return false;" class="btn btn-orcamento" style="position: relative; top: 150px;">Solicite um orçamento</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <h2 class="section-title">Sobre Nós</h2>
+            <div class="sobre-content">
+                <div class="sobre-text">
+                    <h3>Graciele Decorações</h3>
+                    <p>Somos especializados em criar decorações únicas e personalizadas para festas e eventos. Com atenção aos detalhes e dedicação em cada projeto, transformamos seus sonhos em realidade.</p>
+                    <p>Nossa missão é tornar cada momento especial com decorações que encantam e surpreendem, criando ambientes mágicos para celebrações inesquecíveis.</p>
+                    <a href="#" onclick="contatoWhatsApp('Olá! Gostaria de mais informações sobre seus serviços de decoração.'); return false;" class="btn">Entre em contato</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="servicos">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="servicos-grid">
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Aniversários</h3>
+                    <p>Decorações temáticas para aniversários infantis e adultos.</p>
+                </div>
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-glass-cheers"></i>
+                    </div>
+                    <h3>Festas Corporativas</h3>
+                    <p>Ambientação para eventos empresariais e confraternizações.</p>
+                </div>
+                <div class="servico-card">
+                    <div class="servico-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Chá Revelação</h3>
+                    <p>Decorações especiais para o momento da revelação do bebê.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="galeria">
+        <div class="container">
+            <h2 class="section-title">Galeria de Projetos</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.48.16.jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.50.04.jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.50.06.jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.51.05.jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.51.21.jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.51.24.jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.51.25.jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.51.26.jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.51.56.jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.51.57 (1).jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.51.57 (2).jpeg" alt="Decoração Graciele">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="WhatsApp Image 2025-06-13 at 08.51.57.jpeg" alt="Decoração Graciele">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="depoimentos" class="depoimentos">
+        <div class="container">
+            <h2 class="section-title">Depoimentos</h2>
+            <div class="depoimentos-slider">
+                <div class="depoimento">
+                    <div class="depoimento-texto">
+                        <p>"A decoração da festa da minha filha ficou perfeita! Todos os convidados elogiaram. Superou todas as expectativas!"</p>
+                    </div>
+                    <div class="depoimento-autor">
+                        <h4>Ana Paula</h4>
+                        <p>Aniversário infantil</p>
+                    </div>
+                </div>
+                <div class="depoimento">
+                    <div class="depoimento-texto">
+                        <p>"Profissionalismo e criatividade impecáveis. Nosso casamento ficou exatamente como sonhávamos."</p>
+                    </div>
+                    <div class="depoimento-autor">
+                        <h4>Carlos e Mariana</h4>
+                        <p>Casamento</p>
+                    </div>
+                </div>
+                <div class="depoimento">
+                    <div class="depoimento-texto">
+                        <p>"O chá revelação ficou lindo! Cada detalhe foi pensado com carinho e atenção. O momento da revelação foi inesquecível!"</p>
+                    </div>
+                    <div class="depoimento-autor">
+                        <h4>Fernanda</h4>
+                        <p>Chá revelação</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contato-content">
+                <div class="contato-info">
+                    <div class="contato-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h3>Telefone</h3>
+                            <p>(11) 94573-3318</p>
+                            <p>(11) 98678-7226</p>
+                        </div>
+                    </div>
+                    <div class="contato-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>E-mail</h3>
+                            <p>contato@gracieledecoracoes.com.br</p>
+                        </div>
+                    </div>
+                    <div class="contato-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h3>Endereço</h3>
+                            <p>Av. Brasil, 569 - Vila Mogi Moderno</p>
+                            <p>Mogi das Cruzes - SP, 08717-260</p>
+                            <p><a href="https://g.co/kgs/55XGrPg" target="_blank">Ver no Google Maps</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mapa-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3659.1234567890123!2d-46.18765432109876!3d-23.5123456789012!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cdd8f69b9ae0d7%3A0x3c9efa80393a6d97!2sAv.%20Brasil%2C%20569%20-%20Vila%20Mogi%20Moderno%2C%20Mogi%20das%20Cruzes%20-%20SP%2C%2008717-260!5e0!3m2!1spt-BR!2sbr!4v1623456789012!5m2!1spt-BR!2sbr" width="100%" height="300" style="border:0; border-radius:8px; margin-top:20px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contato-buttons">
+                    <a href="#" onclick="contatoWhatsApp('Olá! Gostaria de informações sobre decoração.'); return false;" class="btn">Entre em contato pelo WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2023 Graciele Decorações. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script>
+        // Script inline para garantir funcionalidade básica
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuMobile = document.querySelector('.menu-mobile');
+            const menu = document.querySelector('.menu');
+            
+            menuMobile.addEventListener('click', function() {
+                menu.classList.toggle('active');
+            });
+            
+            // Inicialização do Swiper
+            const swiper = new Swiper(".mySwiper", {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
+            });
+        });
+        
+        // Função para alternar entre os números de WhatsApp
+        function contatoWhatsApp(mensagem) {
+            const whatsappNumbers = [
+                '5511945733318',
+                '5511986787226'
+            ];
+            
+            // Escolhe aleatoriamente um dos números
+            const randomIndex = Math.floor(Math.random() * whatsappNumbers.length);
+            const phoneNumber = whatsappNumbers[randomIndex];
+            
+            // Cria o link do WhatsApp
+            const whatsappUrl = `https://api.whatsapp.com/send/?phone=${phoneNumber}&text=${encodeURIComponent(mensagem)}&type=phone_number&app_absent=0`;
+            
+            // Abre em nova aba
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
